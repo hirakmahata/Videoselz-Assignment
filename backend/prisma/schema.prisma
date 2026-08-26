@@ -1,0 +1,47 @@
+// Normalized shoppable-video schema. Prices are integer cents.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+/// Catalog item shown on a shoppable video.
+model Product {
+  id        Int      @id @default(autoincrement())
+  name      String
+  /// Price in USD cents.
+  price     Int
+  createdAt DateTime @default(now()) @map("created_at")
+  videos    Video[]
+
+  @@map("products")
+}
+
+/// Storefront video tagged to exactly one product.
+model Video {
+  id        Int                @id @default(autoincrement())
+  productId Int                @map("product_id")
+  videoUrl  String             @map("video_url")
+  title     String
+  product   Product            @relation(fields: [productId], references: [id], onDelete: Cascade)
+  events    EngagementEvent[]
+
+  @@index([productId])
+  @@map("videos")
+}
+
+/// Webhook-style interaction: view, click, or add_to_cart.
+model EngagementEvent {
+  id        Int      @id @default(autoincrement())
+  videoId   Int      @map("video_id")
+  /// One of: view | click | add_to_cart
+  eventType String   @map("event_type")
+  timestamp DateTime @default(now())
+  video     Video    @relation(fields: [videoId], references: [id], onDelete: Cascade)
+
+  @@index([videoId, eventType])
+  @@map("engagement_events")
+}
