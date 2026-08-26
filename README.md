@@ -15,7 +15,7 @@ This repository: [hirakmahata/Videoselz-Assignment](https://github.com/hirakmaha
 | --- | --- |
 | **This project** | [github.com/hirakmahata/Videoselz-Assignment](https://github.com/hirakmahata/Videoselz-Assignment) |
 | **30-second candidate pitch** (YouTube, private or unlisted) | _Add the unlisted/private YouTube URL here after recording._ |
-| **Technical walkthrough** (3–5 min Loom or screen recording) | _Add the Loom / screen-recording URL here after recording._ |
+| **Technical walkthrough** (3–5 min Loom or screen recording) | [Loom Recording](https://www.loom.com/share/62c974c36645432b8b1a914516e9a9ba) |
 | **AI prompting log** | [`AI_PROMPTING.md`](./AI_PROMPTING.md) |
 
 ### Other public repositories
