@@ -11,6 +11,7 @@ import express from 'express';
 
 import { getVideoCatalog } from './controllers/eventController.js';
 import { errorHandler, notFoundHandler } from './middleware/errorHandler.js';
+import analyticsRoutes from './routes/analyticsRoutes.js';
 import eventRoutes from './routes/eventRoutes.js';
 
 const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || 'http://localhost:5173';
@@ -30,6 +31,7 @@ app.use('/api/events', eventRoutes);
 // Catalog is separate from analytics so Simulate Traffic can pick any video
 // without fetching a full aggregated page.
 app.get('/api/videos', getVideoCatalog);
+app.use('/api/analytics', analyticsRoutes);
 
 // 404 and error handlers.
 app.use(notFoundHandler);
