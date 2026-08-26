@@ -275,3 +275,10 @@ Seed data: 8 products, 12 videos, and a reproducible mix of historical events.
 4. **Conversion rate is computed in the browser:** `addToCart / views`. A video with no views shows `—` instead of `0%`.
 5. **Simulate Traffic** posts a weighted random event, then refetches the current page.
 6. **Styling** uses semantic HTML and CSS Modules. Tailwind is not used.
+
+
+---
+
+## Image Diagram Of the Project
+
+![Project Diagram](./frontend/public/diagram.png)
