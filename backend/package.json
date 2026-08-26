@@ -10,7 +10,9 @@
     "dev": "node --watch src/server.js",
     "start": "node src/server.js",
     "seed": "prisma generate && prisma migrate deploy && node prisma/seed.js",
-    "reset-db": "prisma generate && prisma migrate deploy && node prisma/seed.js --reset"
+    "reset-db": "prisma generate && prisma migrate deploy && node prisma/seed.js --reset",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev"
   },
   "dependencies": {
     "@prisma/adapter-better-sqlite3": "^7.9.1",
