@@ -11,6 +11,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import AnalyticsTable from '../components/AnalyticsTable/AnalyticsTable.jsx';
 import Pagination from '../components/Pagination/Pagination.jsx';
+import SimulateTrafficButton from '../components/SimulateTrafficButton/SimulateTrafficButton.jsx';
 import { createEvent, fetchVideoAnalytics, fetchVideos } from '../services/api.js';
 import {
   conversionRate,
@@ -123,6 +124,11 @@ export default function Dashboard() {
             storefront — plus the conversion rate calculated in the browser.
           </p>
         </div>
+        <SimulateTrafficButton
+          disabled={loading}
+          simulating={simulating}
+          onClick={handleSimulateTraffic}
+        />
       </section>
 
       <section className={styles.kpis} aria-label="Storewide totals">

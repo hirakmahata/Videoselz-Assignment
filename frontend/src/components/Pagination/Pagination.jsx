@@ -1,4 +1,4 @@
-import styles from './Pagination.module.css';
+import styles from "./Pagination.module.css";
 
 /**
  * Previous / next controls bound to GET /api/analytics/videos.

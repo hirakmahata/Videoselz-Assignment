@@ -1,0 +1,47 @@
+.heroActions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.simulate {
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 22px;
+  background: var(--accent);
+  color: #fffaf2;
+  font-weight: 600;
+  box-shadow: 0 10px 24px rgba(178, 71, 29, 0.22);
+}
+
+.simulate:hover:not(:disabled) {
+  background: var(--accent-dark);
+}
+
+.simulate:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.simulateHint {
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  text-align: right;
+}
+
+@media (max-width: 880px) {
+  .heroActions {
+    align-items: flex-start;
+  }
+
+  .simulateHint {
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .simulate {
+    width: 100%;
+  }
+}
