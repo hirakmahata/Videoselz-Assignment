@@ -9,6 +9,8 @@
  * (assignment requirement), both for KPIs and for each table row.
  */
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import AnalyticsTable from '../components/AnalyticsTable/AnalyticsTable.jsx';
+import Pagination from '../components/Pagination/Pagination.jsx';
 import { createEvent, fetchVideoAnalytics, fetchVideos } from '../services/api.js';
 import {
   conversionRate,
@@ -159,6 +161,20 @@ export default function Dashboard() {
           <p className={`${styles.banner} ${styles.bannerError}`} role="alert">
             {error}
           </p>
+        )}
+
+        {/* Keep the previous table visible while a later page refetch runs. */}
+        {loading && videos.length === 0 ? (
+          <p className={styles.status}>Loading video analytics…</p>
+        ) : videos.length === 0 ? (
+          <p className={styles.status}>No videos found. Seed the database and refresh.</p>
+        ) : (
+          <>
+            <AnalyticsTable videos={videos} />
+            {pagination && (
+              <Pagination pagination={pagination} onPageChange={setPage} />
+            )}
+          </>
         )}
       </section>
     </div>

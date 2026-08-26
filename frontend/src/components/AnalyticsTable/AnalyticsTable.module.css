@@ -1,0 +1,74 @@
+.scroller {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  min-width: 760px;
+}
+
+.table th,
+.table td {
+  padding: 14px 18px;
+  text-align: left;
+  vertical-align: middle;
+  border-top: 1px solid var(--line);
+}
+
+.table th {
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.table td.numeric,
+.table th.numeric {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.product {
+  display: block;
+  margin-top: 2px;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+}
+
+.rate {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.rateValue {
+  font-weight: 600;
+}
+
+.bar {
+  width: 88px;
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #efe6d8;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+}
+
+.barFillGood {
+  background: var(--good);
+}
+
+.barFillWarn {
+  background: var(--warn);
+}
