@@ -4,7 +4,7 @@
  * Keep these thin: parse happens in the service, status codes live here
  * (201 on create). Thrown HttpErrors fall through to errorHandler via next().
  */
-import { createEvent } from '../services/eventService.js';
+import { createEvent, listVideoCatalog } from '../services/eventService.js';
 
 /** POST /api/events */
 export async function postEvent(req, res, next) {
@@ -16,3 +16,12 @@ export async function postEvent(req, res, next) {
   }
 }
 
+/** GET /api/videos */
+export async function getVideoCatalog(req, res, next) {
+  try {
+    const data = await listVideoCatalog();
+    res.json({ data });
+  } catch (err) {
+    next(err);
+  }
+}

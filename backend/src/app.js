@@ -9,6 +9,7 @@
 import cors from 'cors';
 import express from 'express';
 
+import { getVideoCatalog } from './controllers/eventController.js';
 import { errorHandler, notFoundHandler } from './middleware/errorHandler.js';
 import eventRoutes from './routes/eventRoutes.js';
 
@@ -26,6 +27,9 @@ app.get('/api/health', (req, res) => {
 });
 
 app.use('/api/events', eventRoutes);
+// Catalog is separate from analytics so Simulate Traffic can pick any video
+// without fetching a full aggregated page.
+app.get('/api/videos', getVideoCatalog);
 
 // 404 and error handlers.
 app.use(notFoundHandler);

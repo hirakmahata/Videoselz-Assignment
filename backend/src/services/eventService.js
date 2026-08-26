@@ -68,3 +68,11 @@ export async function createEvent(payload) {
   }
 }
 
+/** @returns {Promise<Array<{ id: number, title: string }>>} */
+export async function listVideoCatalog() {
+  // Intentionally unaggregated — the simulator only needs an id and title.
+  return prisma.video.findMany({
+    select: { id: true, title: true },
+    orderBy: { id: 'asc' },
+  });
+}
